@@ -17,7 +17,7 @@ export default function MyreviewCardPresenter(props: any) {
             {props.el?.boardSubject === "TASTER" && "시식단 리뷰"}
           </S.BoardSubject>
         </S.HeaderBox>
-        {props.loginUser.userNickname === props.User.userNickname ? (
+        {props.loginUser?.userNickname === props.User?.userNickname ? (
           <S.ItemProfile
             src={`https://storage.googleapis.com/${props.loginUser?.userImage}`}
           />
