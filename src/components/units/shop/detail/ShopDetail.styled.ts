@@ -332,7 +332,7 @@ export const BuyButton = styled.button`
   ${(props: IBuyButton) =>
     props.amountPoint === 0
       ? "background: #AEAEAE"
-      : "background: linear-gradient(#ff6e30, #ffa230)"};
+      : "background: linear-gradient(0.25turn, #ff6e30, #ffa230)"};
 `;
 export const ChargeButton = styled.button`
   display: flex;
@@ -345,5 +345,5 @@ export const ChargeButton = styled.button`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
 `;

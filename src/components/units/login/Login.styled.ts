@@ -114,7 +114,7 @@ export const SubmitBtn = styled.button`
   margin-top: 80px;
   width: 350px;
   height: 50px;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   border-radius: 10px;
   color: #fff;
   font-weight: 700;

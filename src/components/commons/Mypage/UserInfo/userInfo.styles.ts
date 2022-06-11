@@ -31,7 +31,9 @@ export const UploadImage = styled.img`
   object-fit: cover;
   border-radius: 50%;
   background: ${(props: any) =>
-    props?.loginUser?.userId ? "linear-gradient(#ff6e30, #ffa230)" : "#D2D2D2"};
+    props?.loginUser?.userId
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
+      : "#D2D2D2"};
   display: flex;
   justify-content: end;
   align-items: end;
@@ -48,7 +50,7 @@ export const UserImage = styled.img`
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   display: flex;
   justify-content: end;
   align-items: end;
@@ -166,7 +168,7 @@ export const PointButton = styled.div`
   font-weight: 700;
   font-size: 16px;
   border-radius: 50px;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   color: #fff;
   &:hover {
   }
@@ -179,7 +181,7 @@ export const MessageButton = styled.div`
   border-radius: 50px;
   color: #fff;
   transition: 0.2s;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   &:hover {
     background: linear-gradient(#e8662d, #ef982e);
   }

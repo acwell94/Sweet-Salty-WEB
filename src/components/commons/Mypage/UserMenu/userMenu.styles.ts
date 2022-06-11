@@ -37,10 +37,10 @@ export const MypageMenu = styled.div`
       : "#7b7b7b"};
   background: ${(props: IAny) =>
     props.ismypage || props.ismypageLike || props.ismypagePoint
-      ? "linear-gradient(#ff6e30, #ffa230)"
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#fff"};
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;
@@ -64,11 +64,11 @@ export const MyprofileMenu = styled.div`
   font-size: 20px;
   color: ${(props: IAny) => (props.ismypage ? "#fff" : "#7b7b7b")};
   background: ${(props: IAny) =>
-    props.ismypage ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
+    props.ismypage ? "linear-gradient(0.25turn, #ff6e30, #ffa230)" : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;

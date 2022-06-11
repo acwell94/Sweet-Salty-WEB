@@ -156,7 +156,7 @@ export const Photo = styled.img`
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   cursor: pointer;
 `;
 export const UserProfileBox = styled.div`

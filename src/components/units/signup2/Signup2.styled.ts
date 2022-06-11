@@ -233,7 +233,7 @@ export const ButtonBox = styled.div`
 `;
 
 export const SubmitBtn = styled.button`
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   width: 350px;
   height: 50px;
   border: none;
