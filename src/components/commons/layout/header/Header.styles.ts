@@ -195,9 +195,15 @@ export const UserNameBox = styled.div`
   font-weight: 700;
   font-size: 20px;
   cursor: default;
+  display: flex;
+  align-items: center;
 `;
-export const UserName = styled.span`
+export const UserName = styled.div`
   color: #ffa230;
+  width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const UserPointBox = styled.div`
   margin-bottom: 20px;
