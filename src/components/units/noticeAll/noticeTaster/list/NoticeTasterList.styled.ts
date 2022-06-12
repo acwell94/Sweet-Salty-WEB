@@ -43,13 +43,13 @@ export const ReviewMenu = styled.div`
   font-weight: 700;
   font-size: 20px;
   background: ${(props: IAny) =>
-    props.isNotice ? "linear-gradient(#ff6e30, #ffa230)" : "#fff"};
+    props.isNotice ? "linear-gradient(0.25turn, #ff6e30, #ffa230)" : "#fff"};
   color: ${(props: IAny) => (props.isNotice ? "#fff" : "#7B7B7B")};
 
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;
@@ -58,10 +58,11 @@ export const NoticeBox = styled.div`
   width: 1120px;
   background: #fff;
   border-radius: 20px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 10px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const NoticeTh = styled.div`
   padding: 20px 0;

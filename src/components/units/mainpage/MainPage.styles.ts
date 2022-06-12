@@ -38,13 +38,13 @@ export const ReviewMenuBox = styled.div`
     cursor: pointer;
     transition: 0.2s;
     &:hover {
-      background: linear-gradient(#ff6e30, #ffa230);
+      background: linear-gradient(0.25turn, #ff6e30, #ffa230);
       color: #fff;
     }
   }
   .checkbox input:checked + .checkbox_text {
     color: #ffffff;
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   }
 `;
 export const ReviewMenu = styled.div`
@@ -61,7 +61,7 @@ export const ReviewMenu = styled.div`
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;
@@ -76,7 +76,7 @@ export const MainPageInnerBox = styled.div`
   justify-content: space-around;
   z-index: 1;
   position: relative;
-  box-shadow: 10px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const ReviewHeader = styled.div`
   display: flex;
@@ -100,12 +100,12 @@ export const ReviewArrow = styled.div`
       : "#7b7b7b"};
   background: ${(props: any) =>
     props.isCommonReviewList || props.isVisited || props.isWishList
-      ? "linear-gradient(#ff6e30, #ffa230)"
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
     font-weight: 700;
     box-shadow: 0px 0px 15px #dbdbdb;

@@ -31,12 +31,12 @@ export const MessageMenu = styled.div`
       : "#7b7b7b"};
   background: ${(props: IIs) =>
     props.isReceived || props.isSend || props.isRecievedTap || props.isSendTap
-      ? "linear-gradient(#ff6e30, #ffa230)"
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;

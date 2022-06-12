@@ -29,7 +29,7 @@ export const CommonReviewInnerBox = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: 10px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const TopThreeBox = styled.div`
   margin: 30px 0;

@@ -13,7 +13,9 @@ export default function Uploads02UI(props: any) {
         />
       ) : props.User?.userId ? (
         <S.UploadImage
-          style={{ backgroundColor: "linear-gradient(#ff6e30, #ffa230" }}
+          style={{
+            backgroundColor: "linear-gradient(0.25turn, #ff6e30, #ffa230",
+          }}
         />
       ) : (
         <S.UploadImage style={{ backgroundColor: "#D2D2D2" }} />
