@@ -23,7 +23,7 @@ export const SearchbarBox = styled.div`
 
 export const CommonReviewInnerBox = styled.div`
   position: relative;
-  box-shadow: 10px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
   margin: 0 auto;
   padding: 24px;
   width: 1338px;

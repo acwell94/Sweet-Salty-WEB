@@ -24,7 +24,7 @@ export const SearchBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
 `;
 export const SearchInnerBox = styled.div`
   width: 492px;
@@ -79,7 +79,7 @@ export const ReviewWriteBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
 `;
 export const ReviewWrite = styled.div`
   width: 172px;
@@ -94,7 +94,7 @@ export const ReviewWrite = styled.div`
   color: #7b7b7b;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;
@@ -142,7 +142,7 @@ export const TotalReviewWriteBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#ff6e30, #ffa230);
+  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
 `;
 export const TotalReviewWrite = styled.div`
   width: 172px;
@@ -157,7 +157,7 @@ export const TotalReviewWrite = styled.div`
   color: #7b7b7b;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;

@@ -18,7 +18,7 @@ const TopBox = styled.div`
 
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
     font-weight: 700;
     box-shadow: ${(props: IAny) =>

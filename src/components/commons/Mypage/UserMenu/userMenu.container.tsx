@@ -3,14 +3,13 @@ import UserMenuPresenter from "./userMenu.presenter";
 
 export default function UserMenuContainer(props: any) {
   const router = useRouter();
-  console.log(String(router.query.userNickname), router);
 
   const mypage = [`/${router.query.userNickname}/`];
-  const ismypage = mypage.includes(String(router.query.userNickname));
+  const ismypage = mypage.includes(router.asPath);
   const mypageLike = [`/${router.query.userNickname}/like/`];
-  const ismypageLike = mypageLike.includes(String(router.query.userNickname));
+  const ismypageLike = mypageLike.includes(router.asPath);
   const mypagePoint = [`/${router.query.userNickname}/point/`];
-  const ismypagePoint = mypagePoint.includes(String(router.query.userNickname));
+  const ismypagePoint = mypagePoint.includes(router.asPath);
 
   const onClickMypage = () => {
     router.push(`/${router.query.userNickname}`);
