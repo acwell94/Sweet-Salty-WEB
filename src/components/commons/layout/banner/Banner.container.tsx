@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 const Slick = styled(Slider)`
-  width: 100%;
+  width: 1920px;
   .slick-list {
     width: 100%;
   }
@@ -40,7 +40,7 @@ const settings = {
   slidesToScroll: 1,
   dots: true,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 4000,
   cssEase: "ease",
 };
 
