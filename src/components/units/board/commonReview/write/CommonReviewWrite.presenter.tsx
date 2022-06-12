@@ -6,10 +6,13 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
   ssr: false,
 });
 export default function CommonReviewWritePresenter(props: any) {
-  
   return (
     <S.Wrapper>
-      <form onSubmit={props.handleSubmit(props.isEdit ? props.onClickUpdate:props.onClickReg)}>
+      <form
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickUpdate : props.onClickReg
+        )}
+      >
         <S.Title>
           {props.isEdit ? "단짠 게시판 글 수정" : "단짠 게시판 글 등록"}
         </S.Title>
@@ -121,10 +124,16 @@ export default function CommonReviewWritePresenter(props: any) {
             </S.TitleArticle>
 
             <S.MapArticle>
-              <S.WriteTitle>{props.isEdit?"가게이름":"가게선택"}</S.WriteTitle>
-              {props.isEdit?<div>{props.updateData?.place.placeName}</div> :<S.Map>
-                <WriteMapPage setAddress={props.setAddress} />
-              </S.Map>}
+              <S.WriteTitle>
+                {props.isEdit ? "가게이름" : "가게선택"}
+              </S.WriteTitle>
+              {props.isEdit ? (
+                <div>{props.updateData?.place.placeName}</div>
+              ) : (
+                <S.Map>
+                  <WriteMapPage setAddress={props.setAddress} />
+                </S.Map>
+              )}
             </S.MapArticle>
 
             <S.SugarSaltArticle
@@ -162,27 +171,27 @@ export default function CommonReviewWritePresenter(props: any) {
                 메뉴 선택<S.Span>(1개만 선택 가능)</S.Span>
               </S.WriteTitle>
 
-              <S.MenuBox>
-                {props.isEdit ? (
+              {props.isEdit ? (
+                <S.MenuBox>
                   <S.CategoryPick>
                     {props.updateData?.boardSides[0]?.boardTags.boardTagName}
                   </S.CategoryPick>
-                ) : (
-                  <div>
-                    {props.menuTagData.map((el: any, idx: any) => (
-                      <label className="checkbox" key={el.key}>
-                        <input
-                          type="checkbox"
-                          id={String(idx)}
-                          onChange={props.onChangeCheckMenu(el)}
-                          checked={Boolean(el.checked)}
-                        />
-                        <span className="checkbox_text">{el.value}</span>
-                      </label>
-                    ))}
-                  </div>
-                )}
-              </S.MenuBox>
+                </S.MenuBox>
+              ) : (
+                <S.MenuBox>
+                  {props.menuTagData.map((el: any, idx: any) => (
+                    <label className="checkbox" key={el.key}>
+                      <input
+                        type="checkbox"
+                        id={String(idx)}
+                        onChange={props.onChangeCheckMenu(el)}
+                        checked={Boolean(el.checked)}
+                      />
+                      <span className="checkbox_text">{el.value}</span>
+                    </label>
+                  ))}
+                </S.MenuBox>
+              )}
             </S.MenuArticle>
 
             <S.MoodArticle
@@ -194,7 +203,6 @@ export default function CommonReviewWritePresenter(props: any) {
               </S.WriteTitle>
 
               <S.MoodBox>
-                
                 {props.moodTagData.map((el: any, idx: any) => (
                   <label className="checkbox" key={el.key}>
                     <input
@@ -219,15 +227,22 @@ export default function CommonReviewWritePresenter(props: any) {
 
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
-              <Editor 
-              setBoardContents={props.setBoardContents}
-              updateData={props.updateData}
-              // initialValue={props.updateData?.boardContents||"사진을 드래그&드롭 해보세요."}
-              />
+              {!props.isEdit && <Editor
+                setBoardContents={props.setBoardContents}
+                updateData={props.updateData}
+                
+              />}
+              {props.isEdit && <Editor
+                setBoardContents={props.setBoardContents}
+                updateData={props.updateData}
+                initialValue={props.updateData?.boardContents}
+              />}
             </S.EditorArticle>
 
             <S.ButtonBox>
-              <S.Button type="submit">{props.isEdit ?"수정하기":"등록하기"}</S.Button>
+              <S.Button type="submit">
+                {props.isEdit ? "수정하기" : "등록하기"}
+              </S.Button>
               <S.Button onClick={props.onClickCancel}>취소하기</S.Button>
             </S.ButtonBox>
           </S.Section>
