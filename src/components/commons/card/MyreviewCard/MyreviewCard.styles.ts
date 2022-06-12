@@ -84,7 +84,7 @@ export const ItemInfoUserDiv = styled.div`
 `;
 export const Span = styled.div`
   font-size: 14px;
-  width: 50px;
+  max-width: 45px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
