@@ -158,6 +158,7 @@ export const Photo = styled.img`
   border-radius: 50%;
   background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 export const UserProfileBox = styled.div`
   position: absolute;
@@ -200,7 +201,7 @@ export const UserNameBox = styled.div`
 `;
 export const UserName = styled.div`
   color: #ffa230;
-  width: 110px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
