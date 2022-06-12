@@ -15,7 +15,7 @@ export const MypageBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 10px 10px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 
 export const UserLeftBox = styled.div`

@@ -64,7 +64,7 @@ export const NoticeBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const NoticeTh = styled.div`
   padding: 20px 0;
