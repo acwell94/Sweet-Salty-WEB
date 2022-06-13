@@ -25,7 +25,7 @@ export default function RegisterModalPage(props: any) {
       <S.ModalBody>
         <S.ModalTitle>등록되었습니다.</S.ModalTitle>
         <S.ModalButtonDiv>
-          <S.ModalConfirmBtn onClick={onToggleModal}>
+          <S.ModalConfirmBtn onClick={props.onClickSuccess}>
             확인하기
           </S.ModalConfirmBtn>
         </S.ModalButtonDiv>
