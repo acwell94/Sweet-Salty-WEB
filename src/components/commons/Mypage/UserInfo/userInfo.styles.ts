@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+interface IProps {
+  loginUser?: any;
+}
+
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -30,7 +34,7 @@ export const UploadImage = styled.img`
   cursor: default;
   object-fit: cover;
   border-radius: 50%;
-  background: ${(props: any) =>
+  background: ${(props: IProps) =>
     props?.loginUser?.userId
       ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#D2D2D2"};
