@@ -52,7 +52,7 @@ export default function BestReviewItemPresenterPage(props: any) {
             </S.ItemInfoLocationDiv>
           </S.MidStoreInfoDiv>
           <S.ItemInfoUserDiv>
-            {props.fetchBestDetailData?.boardWriter}
+            {props.fetchBestDetailData?.boardWriter} 단짝님
           </S.ItemInfoUserDiv>
         </S.ItemInfoMidDiv>
 
