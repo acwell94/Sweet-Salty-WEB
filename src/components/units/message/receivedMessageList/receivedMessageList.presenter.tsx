@@ -3,10 +3,27 @@ import { v4 as uuidv4 } from "uuid";
 import { messageDate } from "../../../commons/libraries/date";
 import Paginations01 from "../../../commons/paginations/paginations/01/Paginations01.container";
 import MessageMenuPage from "../../../commons/messageMenu";
+import DeleteModalPage from "../../../commons/modal/deleteModal/DeleteModal";
+import RegisterModalPage from "../../../commons/modal/registerModal/RegisterModal";
 export default function ReceivedMessageListPresenterPage(props: any) {
   const profileUrl = "https://storage.googleapis.com/";
   return (
     <div>
+      {props.deleteToggle && (
+        <DeleteModalPage
+          isOpen={props.deleteToggle}
+          setIsOpen={props.setDeleteToggle}
+          onClickSuccess={props.onClickDeleteMessage(props.deleteId)}
+        />
+      )}
+      {props.submitToggle && (
+        <RegisterModalPage
+          isOpen={props.submitToggle}
+          setIsOpen={props.setSubmitToggle}
+          onClickSuccess={props.onClickSubmitModalToggle}
+          role={"삭제"}
+        />
+      )}
       <S.MsgWrapper>
         <S.TitleTxt>쪽지함</S.TitleTxt>
         <S.MsgHead>
@@ -51,7 +68,7 @@ export default function ReceivedMessageListPresenterPage(props: any) {
                 <S.DateDiv> {messageDate(el.sendAt)}</S.DateDiv>
 
                 <S.DeleteBtn
-                  onClick={props.onClickDeleteMessage(
+                  onClick={props.onClickDeleteModalOpen(
                     el.messageInfo?.messageInfoId
                   )}
                 >
