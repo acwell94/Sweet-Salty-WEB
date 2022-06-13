@@ -2,15 +2,10 @@ import { Modal } from "antd";
 import * as S from "./RegisterModal.styled";
 
 export default function RegisterModalPage(props: any) {
-  const onToggleModal = () => {
-    props.setIsOpen((prev: boolean) => !prev);
-  };
   return (
     <Modal
       visible={props.isOpen}
       closable={false}
-      onOk={onToggleModal}
-      onCancel={onToggleModal}
       maskStyle={{
         width: "100%",
         height: "100%",

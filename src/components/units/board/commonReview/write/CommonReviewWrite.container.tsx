@@ -209,14 +209,14 @@ export default function CommonReviewWriteContainer(props: any) {
   };
 
   const onClickSuccess = () => {
-    if (subCategoryName === "REVIEW") {
+    if (
+      subCategoryName === "REVIEW" ||
+      subCategoryName === "TASTER" ||
+      subCategoryName === "VISITED"
+    ) {
       router.push(`/reviews/commonReview/${resultId}`);
-    } else if (subCategoryName === "TASTER") {
-      router.push(`/reviews/testerReview/${resultId}`);
     } else if (subCategoryName === "REQUEST") {
       router.push(`/reviews/wish/${resultId}`);
-    } else if (subCategoryName === "VISITED") {
-      router.push(`/reviews/commonReview/${resultId}`);
     }
   };
 
