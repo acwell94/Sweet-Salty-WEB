@@ -107,7 +107,6 @@ export default function CommonReviewWritePresenter(props: any) {
                       <S.CategoryPick>단짠리뷰</S.CategoryPick>
                       <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
                       <S.CategoryUnPick>가주세요</S.CategoryUnPick>
-                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
                     </S.CategoryPickSection>
                   )}
                   {props.checkPage === "TASTER" && (
@@ -115,7 +114,6 @@ export default function CommonReviewWritePresenter(props: any) {
                       <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                       <S.CategoryPick>시식단 리뷰</S.CategoryPick>
                       <S.CategoryUnPick>가주세요</S.CategoryUnPick>
-                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
                     </S.CategoryPickSection>
                   )}
                   {props.checkPage === "REQUEST" && (
@@ -123,7 +121,6 @@ export default function CommonReviewWritePresenter(props: any) {
                       <S.CategoryUnPick>단짠리뷰</S.CategoryUnPick>
                       <S.CategoryUnPick>시식단 리뷰</S.CategoryUnPick>
                       <S.CategoryPick>가주세요</S.CategoryPick>
-                      <S.CategoryUnPick>가봤어요</S.CategoryUnPick>
                     </S.CategoryPickSection>
                   )}
                   {props.checkPage === "VISITED" && (
@@ -241,7 +238,9 @@ export default function CommonReviewWritePresenter(props: any) {
             </S.MoodArticle>
 
             <S.EditorArticle>
-              <S.WriteTitle>내용</S.WriteTitle>
+              <S.WriteTitle>
+                내용<S.Span>(사진을 1개 이상 첨부해주세요.)</S.Span>
+              </S.WriteTitle>
               {!props.isEdit && (
                 <Editor
                   setBoardContents={props.setBoardContents}

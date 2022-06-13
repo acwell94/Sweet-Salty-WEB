@@ -1,5 +1,4 @@
 import { Modal } from "antd";
-import { useRouter } from "next/router";
 import * as S from "./DeleteModal.styled";
 
 export default function DeleteModalPage(props: any) {
