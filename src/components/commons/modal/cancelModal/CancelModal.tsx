@@ -16,8 +16,6 @@ export default function CancelModalPage(props: any) {
       <Modal
         visible={props.isOpen}
         closable={false}
-        onOk={onToggleModal}
-        onCancel={onToggleModal}
         maskStyle={{
           width: "100%",
           height: "100%",
