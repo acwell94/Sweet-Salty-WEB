@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic";
+import CancelModalPage from "../../../../commons/modal/cancelModal/CancelModal";
+import RegisterModalPage from "../../../../commons/modal/registerModal/RegisterModal";
 import WriteMapPage from "../../../../commons/writeMap/WriteMap.index";
 import * as S from "./CommonReviewWrite.styles";
 
@@ -8,6 +10,19 @@ const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
 export default function CommonReviewWritePresenter(props: any) {
   return (
     <S.Wrapper>
+      {props.cancelIsOpen && (
+        <CancelModalPage
+          isOpen={props.cancelIsOpen}
+          setIsOpen={props.cancelSetIsOpen}
+        />
+      )}
+      {props.registerIsOpen && (
+        <RegisterModalPage
+          isOpen={props.registerIsOpen}
+          setIsOpen={props.registerSetIsOpen}
+          onClickSuccess={props.onClickSuccess}
+        />
+      )}
       <form
         onSubmit={props.handleSubmit(
           props.isEdit ? props.onClickUpdate : props.onClickReg
@@ -227,23 +242,28 @@ export default function CommonReviewWritePresenter(props: any) {
 
             <S.EditorArticle>
               <S.WriteTitle>내용</S.WriteTitle>
-              {!props.isEdit && <Editor
-                setBoardContents={props.setBoardContents}
-                updateData={props.updateData}
-                
-              />}
-              {props.isEdit && <Editor
-                setBoardContents={props.setBoardContents}
-                updateData={props.updateData}
-                initialValue={props.updateData?.boardContents}
-              />}
+              {!props.isEdit && (
+                <Editor
+                  setBoardContents={props.setBoardContents}
+                  updateData={props.updateData}
+                />
+              )}
+              {props.isEdit && (
+                <Editor
+                  setBoardContents={props.setBoardContents}
+                  updateData={props.updateData}
+                  initialValue={props.updateData?.boardContents}
+                />
+              )}
             </S.EditorArticle>
 
             <S.ButtonBox>
               <S.Button type="submit">
                 {props.isEdit ? "수정하기" : "등록하기"}
               </S.Button>
-              <S.Button onClick={props.onClickCancel}>취소하기</S.Button>
+              <S.Button type="button" onClick={props.onClickCancel}>
+                취소하기
+              </S.Button>
             </S.ButtonBox>
           </S.Section>
         </S.ReviewWriteBox>
