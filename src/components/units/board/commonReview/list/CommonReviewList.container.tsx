@@ -71,7 +71,7 @@ export default function CommonReviewContainerPage() {
       },
     });
   };
-
+  console.log(tagFetchMore);
   return (
     <CommonReviewPresenterPage
       categoryDataLoadMore={categoryDataLoadMore}

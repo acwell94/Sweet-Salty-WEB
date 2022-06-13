@@ -6,10 +6,10 @@ export default function BestReviewItemContainerPage(props: any) {
   const router = useRouter();
 
   const onClickDetailPage = (event: MouseEvent<HTMLDivElement>) => {
-    if (props.el.boardSubject === "TASTER") {
-      router.push(`/reviews/testerReview/${event.currentTarget.id}`);
-    }
-    if (props.el.boardSubject === "REVIEW") {
+    if (
+      props.el.boardSubject === "REVIEW" ||
+      props.el.boardSubject === "TASTER"
+    ) {
       router.push(`/reviews/commonReview/${event.currentTarget.id}`);
     }
     if (props.el.boardSubject === "REQUEST") {
