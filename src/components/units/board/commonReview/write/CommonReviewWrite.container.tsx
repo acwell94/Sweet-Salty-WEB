@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import {
@@ -106,11 +106,10 @@ export default function CommonReviewWriteContainer(props: any) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState, trigger } =
-    useForm({
-      // resolver: yupResolver(props.isEdit ? nonSchema : schema),
-      mode: "onChange",
-    });
+  const { register, handleSubmit, setValue, getValues, formState } = useForm({
+    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
+    mode: "onChange",
+  });
 
   const onClickCancel = () => {
     cancelSetIsOpen((prev) => !prev);
