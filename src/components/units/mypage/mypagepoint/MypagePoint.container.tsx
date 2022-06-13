@@ -19,5 +19,11 @@ export default function MypagePointContainer() {
 
   const { data } = useQuery(FETCH_PAYMENT_HISTORY);
 
-  return <MypagePointPresenter data={data} User={User} loginUser={loginUser} />;
+  return (
+    <MypagePointPresenter
+      data={data}
+      User={User?.fetchUser}
+      loginUser={loginUser?.fetchUserLoggedIn}
+    />
+  );
 }

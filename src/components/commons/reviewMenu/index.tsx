@@ -36,12 +36,12 @@ export const ReviewMenu = styled.div`
     props.isCommonReviewList ||
     props.isTesterReview ||
     props.isWishList
-      ? "linear-gradient(#ff6e30, #ffa230)"
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#fff"};
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
     color: #fff;
   }
 `;

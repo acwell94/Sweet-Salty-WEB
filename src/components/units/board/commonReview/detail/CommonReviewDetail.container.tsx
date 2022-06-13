@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import ReviewDetailPresenter from "./CommonReviewDetail.presenter";
 import {
   CREATE_BOARD_LIKE,
@@ -18,6 +19,7 @@ export default function ReviewDetailContainer() {
 
   const [createBoardLike] = useMutation(CREATE_BOARD_LIKE);
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [deleteIsOpen, deleteSetIsOpen] = useState(false);
   const onClickCommonReviewList = () => {
     router.push("/reviews/commonReview");
   };
@@ -25,16 +27,29 @@ export default function ReviewDetailContainer() {
   const onClickProfile = () => {
     router.push(`/${data?.fetchBoard?.user?.userNickname}`);
   };
-  const onClickUpdate = ()=>{
-    router.push(`/reviews/commonReview/${router.query.boardId}/edit`)
-  }
+  const onClickUpdate = () => {
+    router.push(`/reviews/commonReview/${router.query.boardId}/edit`);
+  };
   const onClickDelete = () => {
+    deleteSetIsOpen((prev) => !prev);
+  };
+  const onClickSuccess = () => {
     try {
       deleteBoard({
         variables: { boardId: String(router.query.boardId) },
       });
-      alert("게시글 삭제 완료");
-      router.push("/reviews/commonReview");
+      if (
+        data.fetchBoard?.boardSubject === "REVIEW" ||
+        data.fetchBoard?.boardSubject === "VISITED"
+      ) {
+        setTimeout(() => {
+          router.push("/reviews");
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          router.push("/reviews");
+        }, 3000);
+      }
     } catch (error: any) {
       alert(error.message);
     }
@@ -42,8 +57,7 @@ export default function ReviewDetailContainer() {
   const onClickLike = () => {
     createBoardLike({
       variables: {
-        boardId:
-          String(router.query.boardId),
+        boardId: String(router.query.boardId),
       },
       refetchQueries: [
         {
@@ -51,27 +65,6 @@ export default function ReviewDetailContainer() {
           variables: { boardId: String(router.query.boardId) },
         },
       ],
-      // optimisticResponse:{
-      //   createBoardLike : (data?.fetchBoard?.boardLikeCount || 0) +1,
-      // },
-      // update(cache, {data}){
-      //   cache.writeQuery({
-      //     query:FETCH_BOARD,
-      //     variables: { boardId:
-      //       "2"
-      //       // String(router.query.boardId)
-      //     },
-      //     data : {
-      //       fetchBoard : {
-      //         boardId :
-      //         // router.query.boardId
-      //         "2",
-      //         __typename: "Board",
-      //         boardLikeCount :data.fetchBoard.boardLikeCount
-      //       }
-      //     }
-      //   })
-      // }
     });
   };
   return (
@@ -83,6 +76,9 @@ export default function ReviewDetailContainer() {
       onClickProfile={onClickProfile}
       onClickLike={onClickLike}
       onClickUpdate={onClickUpdate}
+      onClickSuccess={onClickSuccess}
+      deleteIsOpen={deleteIsOpen}
+      deleteSetIsOpen={deleteSetIsOpen}
     />
   );
 }

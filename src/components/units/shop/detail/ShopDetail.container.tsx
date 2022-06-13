@@ -26,7 +26,7 @@ export default function ShopDetailContainerPage(props: any) {
   );
 
   const chargePoint = () => {
-    router.push("/mypage");
+    router.push(`/${fetchUserLoggedInData?.fetchUserLoggedIn?.userNickname}/`);
   };
 
   const onClickPay = async () => {
@@ -43,7 +43,9 @@ export default function ShopDetailContainerPage(props: any) {
         ],
       });
       alert("결제 완료");
-      router.push("/mypage/mypagepoint");
+      router.push(
+        `/${fetchUserLoggedInData?.fetchUserLoggedIn?.userNickname}/point/`
+      );
     } catch (error: any) {
       alert(error.message);
     }

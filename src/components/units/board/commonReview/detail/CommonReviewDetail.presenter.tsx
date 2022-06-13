@@ -4,6 +4,7 @@ import DetailMapPage from "../../../../commons/detailMap/DetailMap.index";
 import Hits from "../../../../commons/hits";
 import { getDate } from "../../../../commons/libraries/date";
 import LikeButton from "../../../../commons/like";
+import DeleteModalPage from "../../../../commons/modal/deleteModal/DeleteModal";
 import ToastViewerPage from "../../../../commons/toast/viewer";
 import TopButton from "../../../../commons/topbutton";
 import CommentListContainerPage from "../../../comment/commentList/CommentList.container";
@@ -13,6 +14,13 @@ import * as S from "./CommonReviewDetail.styles";
 export default function ReviewDetailPresenter(props: any) {
   return (
     <S.Wrapper>
+      {props.deleteIsOpen && (
+        <DeleteModalPage
+          isOpen={props.deleteIsOpen}
+          setIsOpen={props.deleteSetIsOpen}
+          onClickSuccess={props.onClickSuccess}
+        />
+      )}
       {props.data?.boardSubject === "REVIEW" && (
         <S.Title>
           단짠 게시판 <S.RightOutline /> 단짠 리뷰
@@ -137,12 +145,14 @@ export default function ReviewDetailPresenter(props: any) {
             <S.Button onClick={props.onClickCommonReviewList}>
               목록으로
             </S.Button>
-            {props.loginUser?.userEmail === props.data?.user?.userEmail && 
-            <div>
-              <S.EditButton onClick={props.onClickUpdate}>수정하기</S.EditButton>
-              <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
-            </div>
-              }
+            {props.loginUser?.userEmail === props.data?.user?.userEmail && (
+              <div>
+                <S.EditButton onClick={props.onClickUpdate}>
+                  수정하기
+                </S.EditButton>
+                <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
+              </div>
+            )}
           </S.Buttons>
 
           <S.ReviewHr />

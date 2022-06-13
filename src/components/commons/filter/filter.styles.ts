@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   align-items: start;
   border-radius: 20px;
   background: #fff;
-  box-shadow: 0px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const FilterBox = styled.div`
   width: 380px;
@@ -62,7 +62,7 @@ export const OpenFilter = styled.div`
   justify-content: space-between;
   border-radius: 20px;
   background: #fff;
-  box-shadow: 0px 0px 10px #dbdbdb;
+  box-shadow: 0px 5px 20px #dbdbdb;
 `;
 export const OpenFilterBox = styled.div`
   margin: 20px 0;

@@ -70,7 +70,7 @@ export const ItemInfoTitleDiv = styled.div`
   color: #676767;
   font-size: 18px;
   font-weight: 700;
-  width: 270px;
+  width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -79,9 +79,15 @@ export const ItemInfoUserDiv = styled.div`
   color: #2c2c2c;
   font-size: 14px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 `;
-export const Span = styled.span`
+export const Span = styled.div`
   font-size: 14px;
+  max-width: 45px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const ItemInfoMidDiv = styled.div`

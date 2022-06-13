@@ -15,7 +15,7 @@ export const UploadImage = styled.img`
   border-radius: 50%;
   background: ${(props: any) =>
     props.data?.fetchUserLoggedIn?.userId
-      ? "linear-gradient(#ff6e30, #ffa230)"
+      ? "linear-gradient(0.25turn, #ff6e30, #ffa230)"
       : "#D2D2D2"};
   display: flex;
   justify-content: end;
@@ -43,7 +43,7 @@ export const UploadButton = styled.button`
   align-items: center;
   cursor: pointer;
   &:hover {
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   }
   img {
     transition: 0.2s;
@@ -66,7 +66,7 @@ export const UploadButtonLeft = styled.button`
   transition: 0.4s;
   &:hover {
     transform: rotate(360deg);
-    background: linear-gradient(#ff6e30, #ffa230);
+    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   }
 `;
 export const CheckCircle = styled(CheckCircleOutlined)`

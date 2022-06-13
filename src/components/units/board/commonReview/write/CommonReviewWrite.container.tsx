@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import {
@@ -30,7 +30,9 @@ export default function CommonReviewWriteContainer(props: any) {
     x: "",
     y: "",
   });
-
+  const [cancelIsOpen, cancelSetIsOpen] = useState(false);
+  const [registerIsOpen, registerSetIsOpen] = useState(false);
+  const [resultId, setResultId] = useState("");
   const [menuTagData, setMenuTagData] = useState([
     { key: "0", value: "비건", checked: false, index: 0 },
     { key: "1", value: "아시안푸드", checked: false, index: 1 },
@@ -80,11 +82,18 @@ export default function CommonReviewWriteContainer(props: any) {
 
     setBoardTagMenu(el.value);
   };
+
   const onChangeCheckMood = (checked: any, item: any) => (event: any) => {
     if (checked) {
       setMoodHashTag([...moodHashTag, item]);
     } else if (!checked) {
       setMoodHashTag(moodHashTag.filter((el) => el !== item));
+    }
+    console.log(event);
+    if (moodHashTag.length > 2) {
+      alert("분위기는 최대 3개까지 선택 가능합니다.");
+      setMoodHashTag(moodHashTag.filter((el) => el !== item));
+      event.target.checked = false;
     }
   };
 
@@ -97,13 +106,14 @@ export default function CommonReviewWriteContainer(props: any) {
     setSubCategoryName(el.value);
   };
 
-  const { register, handleSubmit, setValue, getValues, formState,trigger } = useForm({
-    // resolver: yupResolver(props.isEdit ? nonSchema : schema),
-    mode: "onChange",
-  });
+  const { register, handleSubmit, setValue, getValues, formState, trigger } =
+    useForm({
+      // resolver: yupResolver(props.isEdit ? nonSchema : schema),
+      mode: "onChange",
+    });
 
   const onClickCancel = () => {
-    router.back();
+    cancelSetIsOpen((prev) => !prev);
   };
 
   const onClickReg = async (data: any) => {
@@ -135,16 +145,8 @@ export default function CommonReviewWriteContainer(props: any) {
               },
             },
           });
-          alert("게시글 등록 완료");
-          if (subCategoryName === "REVIEW") {
-            router.push(
-              `/reviews/commonReview/${result.data?.createBoard.boardId}`
-            );
-          } else if (subCategoryName === "TASTER") {
-            router.push(
-              `/reviews/testerReview/${result.data?.createBoard.boardId}`
-            );
-          }
+          setResultId(result.data?.createBoard.boardId);
+          registerSetIsOpen((prev) => !prev);
         } catch (error: any) {
           alert(error.message);
         }
@@ -167,8 +169,8 @@ export default function CommonReviewWriteContainer(props: any) {
             },
           },
         });
-        alert("게시글 등록 완료");
-        router.push(`/reviews/wish/${result.data?.createBoardReq.boardId}`);
+        setResultId(result.data?.createBoard.boardId);
+        registerSetIsOpen((prev) => !prev);
       } catch (error: any) {
         alert(error.message);
       }
@@ -198,20 +200,27 @@ export default function CommonReviewWriteContainer(props: any) {
             },
           },
         });
-        alert("게시글 등록 완료");
-        router.push(
-          `/reviews/commonReview/${result.data?.createBoardRes.boardId}`
-        );
+        setResultId(result.data?.createBoardRes.boardId);
+        registerSetIsOpen((prev) => !prev);
       } catch (error: any) {
         alert(error.message);
       }
     }
   };
 
-  
+  const onClickSuccess = () => {
+    if (
+      subCategoryName === "REVIEW" ||
+      subCategoryName === "TASTER" ||
+      subCategoryName === "VISITED"
+    ) {
+      router.push(`/reviews/commonReview/${resultId}`);
+    } else if (subCategoryName === "REQUEST") {
+      router.push(`/reviews/wish/${resultId}`);
+    }
+  };
 
-  //
-  const onClickUpdate = async (data:any) => {
+  const onClickUpdate = async (data: any) => {
     try {
       await updateBoard({
         variables: {
@@ -235,7 +244,7 @@ export default function CommonReviewWriteContainer(props: any) {
               placeUrl: props.updateData?.place.placeUrl,
               lat: props.updateData?.place.lat,
               lng: props.updateData?.place.lng,
-                          }
+            },
           },
         },
       });
@@ -255,7 +264,6 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      // onChangeContents={onChangeContents}
       setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}
@@ -274,6 +282,11 @@ export default function CommonReviewWriteContainer(props: any) {
       subCategoryName={subCategoryName}
       updateData={props.updateData}
       isEdit={props.isEdit}
+      cancelIsOpen={cancelIsOpen}
+      cancelSetIsOpen={cancelSetIsOpen}
+      registerIsOpen={registerIsOpen}
+      registerSetIsOpen={registerSetIsOpen}
+      onClickSuccess={onClickSuccess}
     />
   );
 }
