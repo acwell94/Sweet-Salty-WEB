@@ -1,17 +1,23 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import CommonReviewWritePresenter from "./CommonReviewWrite.presenter";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
-
 import {
   CREATE_BOARD,
   CREATE_BOARD_REQ,
   CREATE_BOARD_RES,
   UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
+// 
+import { Editor } from "@toast-ui/react-editor";
 
+// 
 export default function CommonReviewWriteContainer(props: any) {
+  // 
+  const editorRef = useRef<Editor>(null);
+
+// 
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [createBoardReq] = useMutation(CREATE_BOARD_REQ);
@@ -22,7 +28,7 @@ export default function CommonReviewWriteContainer(props: any) {
   );
   const [boardTagMenu, setBoardTagMenu] = useState();
   const [moodHashTag, setMoodHashTag] = useState([]);
-  const [boardContents, setBoardContents] = useState("");
+  // const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState({
     place_name: "",
     road_address_name: "",
@@ -101,7 +107,6 @@ export default function CommonReviewWriteContainer(props: any) {
       return { ...el, checked: idx === Number(event.target.id) };
     });
     setCategoryData(select);
-
     setSubCategoryName(el.value);
   };
 
@@ -115,6 +120,7 @@ export default function CommonReviewWriteContainer(props: any) {
   };
 
   const onClickReg = async (data: any) => {
+    const contentsvalue = editorRef.current?.getInstance().getMarkdown();
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
       if (moodHashTag.length > 3) {
         alert("분위기는 3개까지 선택이 가능합니다.");
@@ -126,7 +132,7 @@ export default function CommonReviewWriteContainer(props: any) {
                 boardTitle: data.boardTitle,
                 boardSugar: data.boardSugar,
                 boardSalt: data.boardSalt,
-                boardContents,
+                boardContents : contentsvalue,
                 subCategoryName,
                 place: {
                   placeName: address.place_name,
@@ -155,7 +161,7 @@ export default function CommonReviewWriteContainer(props: any) {
           variables: {
             createBoardReqInput: {
               boardTitle: data.boardTitle,
-              boardContents,
+              boardContents :contentsvalue,
               subCategoryName,
               place: {
                 placeName: address.place_name,
@@ -181,7 +187,7 @@ export default function CommonReviewWriteContainer(props: any) {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
               boardSalt: data.boardSalt,
-              boardContents,
+              boardContents:contentsvalue,
               subCategoryName,
               place: {
                 placeName: address.place_name,
@@ -219,6 +225,7 @@ export default function CommonReviewWriteContainer(props: any) {
   };
 
   const onClickUpdate = async (data: any) => {
+    const contentsvalue = editorRef.current?.getInstance().getMarkdown();
     try {
       await updateBoard({
         variables: {
@@ -233,7 +240,7 @@ export default function CommonReviewWriteContainer(props: any) {
             boardSalt: data.boardSalt
               ? data.boardSalt
               : props.updateData?.boardSalt,
-            boardContents: boardContents || props.updateData?.boardContents,
+            boardContents: contentsvalue || props.updateData?.boardContents,
             subCategoryName: props.updateData?.subCategoryName,
             tags: props.updateData?.tags,
             place: {
@@ -262,7 +269,7 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      setBoardContents={setBoardContents}
+      // setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}
       setMenuTagData={setMenuTagData}
@@ -285,6 +292,8 @@ export default function CommonReviewWriteContainer(props: any) {
       registerIsOpen={registerIsOpen}
       registerSetIsOpen={registerSetIsOpen}
       onClickSuccess={onClickSuccess}
-    />
+      // 
+      editorRef={editorRef}
+      />
   );
 }
