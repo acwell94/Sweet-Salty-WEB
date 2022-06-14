@@ -18,7 +18,7 @@ export default function RegisterModalPage(props: any) {
       centered={true}
     >
       <S.ModalBody>
-        <S.ModalTitle>등록되었습니다.</S.ModalTitle>
+        <S.ModalTitle>{props.role}되었습니다.</S.ModalTitle>
         <S.ModalButtonDiv>
           <S.ModalConfirmBtn onClick={props.onClickSuccess}>
             확인하기

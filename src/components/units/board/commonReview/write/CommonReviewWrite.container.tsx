@@ -89,7 +89,6 @@ export default function CommonReviewWriteContainer(props: any) {
     } else if (!checked) {
       setMoodHashTag(moodHashTag.filter((el) => el !== item));
     }
-    console.log(event);
     if (moodHashTag.length > 2) {
       alert("분위기는 최대 3개까지 선택 가능합니다.");
       setMoodHashTag(moodHashTag.filter((el) => el !== item));

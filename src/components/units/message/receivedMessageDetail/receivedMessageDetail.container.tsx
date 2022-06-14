@@ -1,5 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import ReceivedMessageDetailPresenterPage from "./receivedMessageDetail.presenter";
 import {
   DELETE_RECEIVED_MESSAGE,
@@ -14,6 +16,8 @@ export default function ReceivedMessageDetailContainerPage() {
   const { data } = useQuery(FETCH_RECEIVED_MESSAGE, {
     variables: { messageInfoId: String(router.query.messageInfoId) },
   });
+  const [deleteToggle, setDeleteToggle] = useState(false);
+  const [submitToggle, setSubmitToggle] = useState(false);
   const onClickReceivedMessageList = () => {
     router.push("/message/received");
   };
@@ -22,18 +26,31 @@ export default function ReceivedMessageDetailContainerPage() {
       await deleteReceivedMessage({
         variables: { messageInfoId: String(router.query.messageInfoId) },
       });
-      alert("삭제 완료");
-      router.push("/message/received");
+      setSubmitToggle((prev) => !prev);
+      
     } catch (error: any) {
-      alert(error.message);
+      Modal.error({ content: error.message });
     }
   };
+  const onClickDeleteModalToggle = () => {
+    setDeleteToggle((prev) => !prev);
+  };
+  const onClickSubmitModalToggle = ()=>{
+    setSubmitToggle((prev) => !prev);
+    router.push("/message/received");
+  }
   return (
     <ReceivedMessageDetailPresenterPage
       data={data}
+      onClickDeleteModalToggle={onClickDeleteModalToggle}
       onClickDeleteMessage={onClickDeleteMessage}
       onClickReceivedMessageList={onClickReceivedMessageList}
       isRecievedTap={isRecievedTap}
+      deleteToggle={deleteToggle}
+      setDeleteToggle={setDeleteToggle}
+      submitToggle={submitToggle}
+      setSubmitToggle={setSubmitToggle}
+      onClickSubmitModalToggle={onClickSubmitModalToggle}
     />
   );
 }

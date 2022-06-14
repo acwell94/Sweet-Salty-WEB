@@ -21,6 +21,7 @@ export default function CommonReviewWritePresenter(props: any) {
           isOpen={props.registerIsOpen}
           setIsOpen={props.registerSetIsOpen}
           onClickSuccess={props.onClickSuccess}
+          role={"등록"}
         />
       )}
       <form
