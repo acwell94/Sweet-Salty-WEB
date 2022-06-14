@@ -16,13 +16,30 @@ interface ILayoutProps {
 
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  
-  const NO_HEADER_LIST = ["/message/received/","/message/send/","/message/write/","/login/","/signup/"];
-  const NP_FOOTER_LIST = ["/message/received/","/message/send/","/message/write/"]
+
+  const NO_HEADER_LIST = [
+    "/message/received/[messageInfoId]",
+    "/message/send/[messageInfoId]",
+    "/message/received",
+    "/message/send",
+    "/message",
+    "/message/write",
+    "/login",
+    "/signup",
+  ];
+  const NP_FOOTER_LIST = [
+    "/message/received/[messageInfoId]",
+    "/message/send/[messageInfoId]",
+    "/message/received",
+    "/message",
+    "/message/send",
+    "/message/write",
+  ];
   const MainPage = ["/"];
   const isMainPage = MainPage.includes(router.pathname);
-  const noHeader = NO_HEADER_LIST.includes(router.asPath);
-  const noFooter = NP_FOOTER_LIST.includes(router.asPath);
+  const noHeader = NO_HEADER_LIST.includes(router.pathname);
+  const noFooter = NP_FOOTER_LIST.includes(router.pathname);
+  
   return (
     <Wrapper>
       {!noHeader && <LayoutHeader />}

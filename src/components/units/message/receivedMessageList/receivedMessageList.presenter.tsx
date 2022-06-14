@@ -50,8 +50,8 @@ export default function ReceivedMessageListPresenterPage(props: any) {
           <S.MessageThHr />
 
           {props.dataReceivedMessages?.fetchReceivedMessages.map((el: any) => (
-            <>
-              <S.MessageBoxDiv key={uuidv4()}>
+            <div key={uuidv4()}>
+              <S.MessageBoxDiv >
                 <S.ProfileDiv>
                   <S.ProfileImg src={profileUrl + el.messageSendUserImage} />
                   <S.SendUserDiv>{el.messageSendUser}</S.SendUserDiv>
@@ -77,7 +77,7 @@ export default function ReceivedMessageListPresenterPage(props: any) {
               </S.MessageBoxDiv>
 
               <S.MessageHr />
-            </>
+            </div>
           ))}
         </S.MsgListDiv>
         <S.PaginationBox>
