@@ -51,8 +51,8 @@ export default function SendMessageListPresenterPage(props: any) {
 
           <S.MessageThHr />
           {props.dataSendMessages?.fetchSendMessages.map((el: any) => (
-            <>
-              <S.MessageBoxDiv key={uuidv4()}>
+            <div key={uuidv4()}>
+              <S.MessageBoxDiv >
                 <S.ProfileDiv>
                   <S.ProfileImg
                     src={profileUrl + el.messageReceivedUserImage}
@@ -77,7 +77,7 @@ export default function SendMessageListPresenterPage(props: any) {
                 </S.DeleteBtn>
               </S.MessageBoxDiv>
               <S.MessageHr />
-            </>
+            </div>
           ))}
         </S.MsgListDiv>
 
