@@ -66,12 +66,12 @@ export default function UserInfoContainer(props: any) {
   };
 
   // 팔로워, 팔로우
-  const [isFollow] = useState(true);
+  const [isFollow, setIsFollow] = useState(true);
   const [follow] = useMutation(FOLLOW);
 
   const onClickFollow = async () => {
     try {
-      await follow({
+      const result = await follow({
         variables: {
           followerNickname: props.User?.userNickname,
         },
@@ -85,11 +85,11 @@ export default function UserInfoContainer(props: any) {
         ],
       });
 
-      // if (result.data.follow === "팔로우") {
-      //   setIsFollow(false);
-      // } else if (result.data.follow === "언팔로우") {
-      //   setIsFollow(true);
-      // }
+      if (result.data.follow === "팔로우") {
+        setIsFollow(false);
+      } else if (result.data.follow === "언팔로우") {
+        setIsFollow(true);
+      }
     } catch (error: any) {
       alert(error.message);
     }

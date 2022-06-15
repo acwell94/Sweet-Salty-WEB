@@ -1,12 +1,8 @@
-// searchbar Presenter === 김치훈
-
 import * as S from "./shopSearchBar.styles";
 
 export default function StoreSearchBarPresenter(props: any) {
   return (
     <S.Wrapper>
-      {/* 공지사항 페이지 검색창 */}
-
       <S.SearchBox>
         <S.SearchInnerBox>
           <S.Select
@@ -15,11 +11,15 @@ export default function StoreSearchBarPresenter(props: any) {
             defaultValue="default"
             ref={props.conditionRef}
           >
-            <option value="default" disabled>
+            <option id="searchValue" value="default" disabled>
               선택
             </option>
-            <option value="title">메뉴명</option>
-            <option value="seller">가게명</option>
+            <option id="searchValue" value="title">
+              메뉴명
+            </option>
+            <option id="searchValue" value="seller">
+              가게명
+            </option>
           </S.Select>
           <S.SearchBar
             onKeyUp={props.onKeyUpInput}

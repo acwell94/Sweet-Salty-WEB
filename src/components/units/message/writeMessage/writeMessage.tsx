@@ -1,6 +1,9 @@
 import { useMutation } from "@apollo/client";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import RegisterModalPage from "../../../commons/modal/registerModal/RegisterModal";
 import { SEND_MESSAGE } from "./writeMessage.queries";
 import * as S from "./writeMessage.styled";
 export default function WriteMessagePage() {
@@ -9,7 +12,8 @@ export default function WriteMessagePage() {
   });
   const router = useRouter();
   const [sendMessage] = useMutation(SEND_MESSAGE);
-
+  const [submitToggle, setSubmitToggle] = useState(false);
+  const [receiveUser, setReceiveUser] = useState("");
   const onClickCancel = () => {
     router.push("/message/received");
   };
@@ -23,14 +27,26 @@ export default function WriteMessagePage() {
           },
         },
       });
-      alert(`${data.receiveUser}님께 쪽지가 전송되었습니다.`);
-      window.close();
+      setReceiveUser(data.receiveUser)
+      setSubmitToggle((prev) => !prev);
     } catch (error: any) {
-      alert(error.message);
+      Modal.error({ content: error.message });
     }
+  };
+  const onClickSubmitToggle = () => {
+    setSubmitToggle((prev) => !prev);
+    router.push(`/message/send`);
   };
   return (
     <S.MessageBoxDiv>
+      {submitToggle && (
+        <RegisterModalPage
+          isOpen={submitToggle}
+          setIsOpen={setSubmitToggle}
+          onClickSuccess={onClickSubmitToggle}
+          role={`${receiveUser}님께 쪽지가 전송`}
+        />
+      )}
       <S.Title>
         쪽지함 <S.RightOutline />
         쪽지보내기

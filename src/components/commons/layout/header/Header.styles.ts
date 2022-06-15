@@ -1,44 +1,66 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../globalstyles/Media";
 
-interface IIntroPage {
-  isIntroPage: any;
-}
-interface IIntroReview {
-  isReviewPage: any;
-}
-interface IIntroStore {
-  isStorePage: any;
-}
-interface IIntroNotice {
-  isNoticePage: any;
+interface IProps {
+  isIntroPage?: any;
+  isReviewPage?: any;
+  isStorePage?: any;
+  isNoticePage?: any;
+  mediaIsOpen?: boolean;
 }
 
 export const HeaderWrapper = styled.div`
   width: 100%;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media ${breakPoints.mobile} {
+    width: 360px;
+    background: #fff;
+    z-index: 10;
+  }
 `;
 export const HeaderBox = styled.div`
-  width: 1120px;
-  height: 84px;
-  margin: 0 auto;
+  width: 1334px;
+  padding: 30px 0px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  @media ${breakPoints.mobile} {
+    width: 360px;
+    padding: 18px 20px;
+  }
 `;
 export const HeaderLogo = styled.img`
   width: 162px;
   cursor: pointer;
+  @media ${breakPoints.mobile} {
+    width: 80px;
+    height: 22px;
+  }
 `;
 export const HeaderMenuBox = styled.div`
-  margin-right: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media ${breakPoints.mobile} {
+    position: absolute;
+    width: 360px;
+    display: ${(props: IProps) => (props.mediaIsOpen ? "flex" : "none")};
+    flex-direction: column;
+    align-items: center;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    padding: 44px 0px 32px 0px;
+  }
 `;
 
 export const IntroductionMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: IIntroPage) => (props.isIntroPage ? "900" : "500")};
+  font-weight: ${(props: IProps) => (props.isIntroPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -49,12 +71,15 @@ export const IntroductionMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: IIntroPage) =>
+  border-bottom: ${(props: IProps) =>
     props.isIntroPage ? "8px solid #ffa230" : "none"};
+  @media ${breakPoints.mobile} {
+    font-weight: ${(props: IProps) => (props.isNoticePage ? "900" : "600")};
+  }
 `;
 export const ReviewMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: IIntroReview) => (props.isReviewPage ? "900" : "500")};
+  font-weight: ${(props: IProps) => (props.isReviewPage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -65,12 +90,16 @@ export const ReviewMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: IIntroReview) =>
+  border-bottom: ${(props: IProps) =>
     props.isReviewPage ? "8px solid #ffa230" : "none"};
+  @media ${breakPoints.mobile} {
+    margin: 30px 0px;
+    font-weight: ${(props: IProps) => (props.isNoticePage ? "900" : "600")};
+  }
 `;
 export const StoreMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: IIntroStore) => (props.isStorePage ? "900" : "500")};
+  font-weight: ${(props: IProps) => (props.isStorePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -81,12 +110,16 @@ export const StoreMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: IIntroStore) =>
+  border-bottom: ${(props: IProps) =>
     props.isStorePage ? "8px solid #ffa230" : "none"};
+
+  @media ${breakPoints.mobile} {
+    font-weight: ${(props: IProps) => (props.isNoticePage ? "900" : "600")};
+  }
 `;
 export const NoticeMenu = styled.div`
   font-size: 18px;
-  font-weight: ${(props: IIntroNotice) => (props.isNoticePage ? "900" : "500")};
+  font-weight: ${(props: IProps) => (props.isNoticePage ? "900" : "500")};
   margin: 0 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -97,21 +130,11 @@ export const NoticeMenu = styled.div`
   &:active {
     font-size: 18.5px;
   }
-  border-bottom: ${(props: IIntroNotice) =>
+  border-bottom: ${(props: IProps) =>
     props.isNoticePage ? "8px solid #ffa230" : "none"};
-`;
-export const QuestionMenu = styled.div`
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 20px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    border-bottom: 8px solid #ffa230;
-    font-weight: 900;
-  }
-  &:active {
-    font-size: 18.5px;
+  @media ${breakPoints.mobile} {
+    margin: 30px 0px 0px 0px;
+    font-weight: ${(props: IProps) => (props.isNoticePage ? "900" : "600")};
   }
 `;
 
@@ -159,6 +182,10 @@ export const Photo = styled.img`
   background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  @media ${breakPoints.mobile} {
+    width: 32px;
+    height: 32px;
+  }
 `;
 export const UserProfileBox = styled.div`
   position: absolute;
@@ -261,5 +288,22 @@ export const Logout = styled.div`
   transition: 0.2s;
   &:hover {
     border-bottom: 2px solid #ffa230;
+  }
+`;
+
+export const MediaHamburgerDiv = styled.div`
+  display: none;
+  @media ${breakPoints.mobile} {
+    display: block;
+    width: 35px;
+  }
+`;
+
+export const MediaHamburger = styled.img`
+  width: ${(props: IProps) => (props.mediaIsOpen ? "16px" : "20px")};
+  height: ${(props: IProps) => (props.mediaIsOpen ? "16px" : "12px")};
+  display: none;
+  @media ${breakPoints.mobile} {
+    display: block;
   }
 `;

@@ -1,27 +1,34 @@
 import styled from "@emotion/styled";
-import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
-// 스토어 아이템 부분
-// 여러번 사용
-
-// 여러번 사용 끝
+import { breakPoints } from "../../globalstyles/Media";
 export const ItemMainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
-  height: 342px;
-  padding: 12px 0px 0px 10px;
-  width: 338px;
+  padding: 12px 20px 0px 10px;
   position: relative;
+  @media ${breakPoints.mobile} {
+  }
 `;
 
 export const ImageTitle = styled.div`
   position: absolute;
   top: 20px;
   left: 16px;
+  @media ${breakPoints.mobile} {
+    top: 12px;
+    left: 20px;
+  }
 `;
 
 export const ItemRanking = styled.img`
   width: 30px;
   height: 30px;
+  @media ${breakPoints.mobile} {
+    width: 14px;
+    height: 16px;
+  }
 `;
 
 export const ItemImg = styled.div`
@@ -30,10 +37,14 @@ export const ItemImg = styled.div`
   display: flex;
   flex-direction: row;
   height: 250px;
-  justify-content: flex-end;
-  padding: 66px 58px;
+  justify-content: center;
+  align-items: center;
   width: 338px;
-  margin-bottom: 15px;
+  @media ${breakPoints.mobile} {
+    width: 245px;
+    height: 180px;
+    padding: 0px;
+  }
 `;
 
 export const GifticonDiv = styled.div`
@@ -44,6 +55,10 @@ export const GifticonDiv = styled.div`
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #ffffff;
+  @media ${breakPoints.mobile} {
+    width: 187px;
+    height: 100px;
+  }
 `;
 
 export const GifticonImg = styled.div`
@@ -69,11 +84,13 @@ export const ItemPick = styled(FavoriteRoundedIcon)`
     font-size: 40px;
   }
 `;
-// pick 여부 따라서 color  #FF6E30
 export const ItemInfoDiv = styled.div`
-  height: 92px;
-  padding: 10px 0;
+  padding: 20px 0;
   width: 338px;
+  @media ${breakPoints.mobile} {
+    width: 245px;
+    padding: 10px 0px;
+  }
 `;
 export const ItemInfoTopDiv = styled.div`
   display: flex;
@@ -89,17 +106,26 @@ export const ItemInfoTxtDiv = styled.div`
   line-height: 22px;
   padding: 0px 0px 10px 0px;
   width: 100%;
+  @media ${breakPoints.mobile} {
+    padding: 0px;
+  }
 `;
 
 export const ItemInfoTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
 export const ItemInfoSeller = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
 
 export const ItemInfoBarDiv = styled.div`
@@ -108,52 +134,45 @@ export const ItemInfoBarDiv = styled.div`
   line-height: 22px;
   text-align: center;
   padding: 0 5px;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+  }
 `;
-export const ItemInfoUserDiv = styled.div`
-  color: #2c2c2c;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
-`;
-export const ItemInfoMidDiv = styled.div`
-  color: #676767;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 10px 0;
-`;
+
 export const ItemInfoBottomDiv = styled.div`
   padding: 5px 0;
   display: flex;
   justify-content: flex-start;
-`;
-export const ItemInfoLikeCount = styled(FavoriteBorderRoundedIcon)`
-  && {
-    font-size: 24px;
-    color: #ffa230;
+  @media ${breakPoints.mobile} {
+    padding: 0px;
   }
 `;
-export const ItemInfoCountDiv = styled.div`
-  color: #2c2c2c;
-  font-size: 14px;
-  line-height: 24px;
-  padding: 0 5px;
-`;
+
 export const ItemDCRateDiv = styled.div`
   color: #ff6e30;
   font-size: 18px;
   font-weight: 700;
   line-height: 18px;
   padding-right: 5px;
+  @media ${breakPoints.mobile} {
+    font-size: 12px;
+  }
 `;
 export const ItemPriceDiv = styled.div`
   font-size: 18px;
   font-weight: 600;
   line-height: 18px;
+  @media ${breakPoints.mobile} {
+    font-size: 12px;
+  }
 `;
 export const ItemWonDiv = styled.div`
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 18px;
+  @media ${breakPoints.mobile} {
+    font-size: 8px;
+  }
 `;
 export const ItemNoDCPriceDiv = styled.div`
   color: #aeaeae;
@@ -162,5 +181,8 @@ export const ItemNoDCPriceDiv = styled.div`
   font-weight: 500;
   padding: 2px 5px 0;
   text-decoration: line-through;
+  @media ${breakPoints.mobile} {
+    font-size: 8px;
+  }
 `;
 // 스토어 아이템 끝

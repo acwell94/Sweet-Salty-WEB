@@ -17,22 +17,38 @@ interface ILayoutProps {
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
 
-  const LoginPage = ["/login"];
-  const isLoginPage = LoginPage.includes(router.pathname);
-  const SignupPage = ["/signup"];
-  const isSignupPage = SignupPage.includes(router.pathname);
+  const NO_HEADER_LIST = [
+    "/message/received/[messageInfoId]",
+    "/message/send/[messageInfoId]",
+    "/message/received",
+    "/message/send",
+    "/message",
+    "/message/write",
+    "/login",
+    "/signup",
+  ];
+  const NP_FOOTER_LIST = [
+    "/message/received/[messageInfoId]",
+    "/message/send/[messageInfoId]",
+    "/message/received",
+    "/message",
+    "/message/send",
+    "/message/write",
+  ];
   const MainPage = ["/"];
   const isMainPage = MainPage.includes(router.pathname);
-
+  const noHeader = NO_HEADER_LIST.includes(router.pathname);
+  const noFooter = NP_FOOTER_LIST.includes(router.pathname);
+  
   return (
     <Wrapper>
-      {!isLoginPage && !isSignupPage && <LayoutHeader />}
+      {!noHeader && <LayoutHeader />}
 
       {isMainPage && <LayoutBanner />}
 
       <Body>{props.children}</Body>
 
-      <LayoutFooter />
+      {!noFooter && <LayoutFooter />}
     </Wrapper>
   );
 }

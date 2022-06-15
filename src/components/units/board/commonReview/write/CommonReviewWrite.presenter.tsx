@@ -4,9 +4,18 @@ import RegisterModalPage from "../../../../commons/modal/registerModal/RegisterM
 import WriteMapPage from "../../../../commons/writeMap/WriteMap.index";
 import * as S from "./CommonReviewWrite.styles";
 
-const Editor = dynamic(() => import("../../../../commons/toast/editor"), {
-  ssr: false,
-});
+const EditorForEdit = dynamic(
+  () => import("../../../../commons/toast/editor"),
+  {
+    ssr: false,
+  }
+);
+const EditorForWrite = dynamic(
+  () => import("../../../../commons/toast/editor2"),
+  {
+    ssr: false,
+  }
+);
 export default function CommonReviewWritePresenter(props: any) {
   return (
     <S.Wrapper>
@@ -21,6 +30,7 @@ export default function CommonReviewWritePresenter(props: any) {
           isOpen={props.registerIsOpen}
           setIsOpen={props.registerSetIsOpen}
           onClickSuccess={props.onClickSuccess}
+          role={"등록"}
         />
       )}
       <form
@@ -241,18 +251,14 @@ export default function CommonReviewWritePresenter(props: any) {
               <S.WriteTitle>
                 내용<S.Span>(사진을 1개 이상 첨부해주세요.)</S.Span>
               </S.WriteTitle>
-              {!props.isEdit && (
-                <Editor
-                  setBoardContents={props.setBoardContents}
+
+              {props.isEdit ? (
+                <EditorForEdit
+                  editorRef={props.editorRef}
                   updateData={props.updateData}
                 />
-              )}
-              {props.isEdit && (
-                <Editor
-                  setBoardContents={props.setBoardContents}
-                  updateData={props.updateData}
-                  initialValue={props.updateData?.boardContents}
-                />
+              ) : (
+                <EditorForWrite editorRef={props.editorRef} />
               )}
             </S.EditorArticle>
 

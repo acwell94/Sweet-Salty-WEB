@@ -1,19 +1,10 @@
-// searchbar styles === 김치훈
-
 import styled from "@emotion/styled";
 import { SearchOutlined, EditOutlined } from "@ant-design/icons";
+import { breakPoints } from "../globalstyles/Media";
 
 export const Wrapper = styled.div`
-  width: ${(props: any) => (props.isNoticeAllList ? "1120px" : "1338px")};
   display: flex;
-  justify-content: ${(props: any) =>
-    props.isReviewList ||
-    props.isCommonReviewList ||
-    props.isTesterReview ||
-    props.isWishList ||
-    props.isNoticeAllList
-      ? "end"
-      : "center"};
+  justify-content: center;
   background: #f3f3f3;
 `;
 
@@ -25,6 +16,9 @@ export const SearchBox = styled.div`
   justify-content: center;
   align-items: center;
   background: linear-gradient(0.25turn, #ff6e30, #ffa230);
+  @media ${breakPoints.mobile} {
+    width: 360px;
+  }
 `;
 export const SearchInnerBox = styled.div`
   width: 492px;
@@ -34,7 +28,10 @@ export const SearchInnerBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  @media ${breakPoints.mobile} {
+    width: 352px;
+    height: 42px;
+  }
   #searchSelect {
     width: 88px;
     transform: translate(12px);
@@ -43,15 +40,17 @@ export const SearchInnerBox = styled.div`
   }
 `;
 export const Select = styled.select`
-  width: 88px;
   height: 32px;
   outline: 2px solid #dadada;
   border-radius: 10px;
-  font-size: 16px; 
+  font-size: 16px;
   font-weight: 700;
-  color: #676767
-  ::-webkit-appearance: none; /* 네이티브 외형 감추기 */
-  ::-moz-appearance: none;
+  color: #676767;
+  #searchValue {
+    @media ${breakPoints.mobile} {
+      font-size: 12px;
+    }
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -72,7 +71,6 @@ export const SearchIcon = styled(SearchOutlined)`
 export const ReviewWriteBox = styled.div`
   position: relative;
   margin-left: ${(props: any) => (props.isNoticeAllList ? "120px" : "236px")};
-  // margin-left: 120px;
   width: 180px;
   height: 50px;
   border-radius: 50px;

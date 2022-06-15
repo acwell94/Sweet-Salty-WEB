@@ -11,7 +11,7 @@ const UPLOAD_FILE = gql`
   }
 `;
 
-export default function WriteToastForEdit(props:any) {
+export default function WriteToastForWrite(props:any) {
   const [uploadFile] = useMutation(UPLOAD_FILE);
   // const editorRef = useRef<Editor>(null);
 
@@ -47,7 +47,7 @@ export default function WriteToastForEdit(props:any) {
         previewStyle="tab"
         plugins={[colorSyntax]}
         // onChange={onChangeContents}
-        initialValue={props.updateData?.boardContents ||""}
+        // initialValue={props.updateData?.boardContents ||""}
         ref={props.editorRef}
       />
     </>
