@@ -28,7 +28,8 @@ export default function ShopContainerPage(props: any) {
         title: titleSearch,
       },
     });
-
+  console.log(sellerSearch, "55");
+  console.log(titleSearch, "66");
 
   const { data: bestShopListData } = useQuery(FETCH_TOP_SHOP);
 
