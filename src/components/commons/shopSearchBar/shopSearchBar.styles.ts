@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { SearchOutlined, EditOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { breakPoints } from "../globalstyles/Media";
 
 export const Wrapper = styled.div`
@@ -17,7 +17,7 @@ export const SearchBox = styled.div`
   align-items: center;
   background: linear-gradient(0.25turn, #ff6e30, #ffa230);
   @media ${breakPoints.mobile} {
-    width: 360px;
+    width: 212px;
   }
 `;
 export const SearchInnerBox = styled.div`
@@ -29,7 +29,7 @@ export const SearchInnerBox = styled.div`
   justify-content: space-between;
   align-items: center;
   @media ${breakPoints.mobile} {
-    width: 352px;
+    width: 204px;
     height: 42px;
   }
   #searchSelect {
@@ -46,9 +46,14 @@ export const Select = styled.select`
   font-size: 16px;
   font-weight: 700;
   color: #676767;
+  @media ${breakPoints.mobile} {
+    height: 22px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
   #searchValue {
     @media ${breakPoints.mobile} {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 `;
@@ -61,101 +66,16 @@ export const SearchBar = styled.input`
   border: none;
   outline: none;
   background: transparent;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+    font-weight: 500;
+  }
 `;
 export const SearchIcon = styled(SearchOutlined)`
   color: #ffa230;
   transform: translate(-25px);
   cursor: pointer;
-`;
-
-export const ReviewWriteBox = styled.div`
-  position: relative;
-  margin-left: ${(props: any) => (props.isNoticeAllList ? "120px" : "236px")};
-  width: 180px;
-  height: 50px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
-`;
-export const ReviewWrite = styled.div`
-  width: 172px;
-  height: 44px;
-  line-height: 44px;
-  border-radius: 50px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-  background: #fff;
-  color: #7b7b7b;
-  transition: 0.2s;
-  &:hover {
-    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
-    color: #fff;
-  }
-`;
-
-export const WriteIcon = styled(EditOutlined)`
-  font-size: 16px;
-  margin-right: 5px;
-`;
-
-export const UserProfileBox = styled.div`
-  position: absolute;
-  top: -260px;
-  right: -170px;
-  z-index: 1;
-  width: 600px;
-  height: 130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translate(0, 120px);
-`;
-export const ArrowBox = styled.div`
-  width: 0px;
-  height: 0px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #fff;
-`;
-export const UserProfile = styled.div`
-  width: 600px;
-  height: 100px;
-  background: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 2px 2px 7px #999;
-`;
-
-export const TotalReviewWriteBox = styled.div`
-  width: 180px;
-  height: 50px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(0.25turn, #ff6e30, #ffa230);
-`;
-export const TotalReviewWrite = styled.div`
-  width: 172px;
-  height: 44px;
-  line-height: 44px;
-  border-radius: 50px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-  background: #fff;
-  color: #7b7b7b;
-  transition: 0.2s;
-  &:hover {
-    background: linear-gradient(0.25turn, #ff6e30, #ffa230);
-    color: #fff;
+  @media ${breakPoints.mobile} {
+    width: 10px;
   }
 `;

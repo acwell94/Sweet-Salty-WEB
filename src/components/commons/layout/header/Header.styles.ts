@@ -15,6 +15,8 @@ export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 100;
   @media ${breakPoints.mobile} {
     width: 360px;
     background: #fff;
@@ -31,6 +33,7 @@ export const HeaderBox = styled.div`
   @media ${breakPoints.mobile} {
     width: 360px;
     padding: 18px 20px;
+    z-index: 10;
   }
 `;
 export const HeaderLogo = styled.img`

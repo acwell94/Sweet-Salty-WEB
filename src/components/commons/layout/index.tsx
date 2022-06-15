@@ -39,7 +39,7 @@ export default function Layout(props: ILayoutProps) {
   const isMainPage = MainPage.includes(router.pathname);
   const noHeader = NO_HEADER_LIST.includes(router.pathname);
   const noFooter = NP_FOOTER_LIST.includes(router.pathname);
-  
+
   return (
     <Wrapper>
       {!noHeader && <LayoutHeader />}
