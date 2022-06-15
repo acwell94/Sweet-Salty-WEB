@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../commons/globalstyles/Media";
 
 export const Page = styled.div`
   align-items: center;
@@ -12,6 +13,9 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 1338px;
+  @media ${breakPoints.mobile} {
+    width: 360px;
+  }
 `;
 
 export const TitleSection = styled.div`
@@ -22,6 +26,9 @@ export const TitleSection = styled.div`
 
 export const SearchSection = styled.div`
   padding: 0px 0px 46px 0px;
+  @media ${breakPoints.mobile} {
+    padding: 0px 20px 46px 0px;
+  }
 `;
 
 export const ContentsSection = styled.div`
@@ -30,20 +37,53 @@ export const ContentsSection = styled.div`
   border-radius: 20px;
   padding: 24px;
   width: 100%;
+  @media ${breakPoints.mobile} {
+    padding: 20px;
+  }
 `;
 
 export const BestContentsSection = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dadada;
-  display: flex;
   padding: 30px 0px;
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+    padding: 0px;
+  }
+`;
+
+export const Test = styled.div`
+  display: flex;
+  @media ${breakPoints.mobile} {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 export const BestContentsTitleArticle = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 130px 0px 0px;
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
+export const BestContentsMediaTitleArticle = styled.div`
+  display: none;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ff9a31;
+  @media ${breakPoints.mobile} {
+    display: flex;
+    font-size: 12px;
+    font-weight: 800;
+    color: #ff9a31;
+  }
 `;
 
 export const BestContentsTitleTop = styled.div`

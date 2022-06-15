@@ -33,15 +33,20 @@ export default function ShopPresenterPage(props: any) {
               <S.BestContentsTitleTop>실시간</S.BestContentsTitleTop>
               <S.BestContentsTitleBottom>TOP 3</S.BestContentsTitleBottom>
             </S.BestContentsTitleArticle>
+            <S.BestContentsMediaTitleArticle>
+              실시간 TOP 3
+            </S.BestContentsMediaTitleArticle>
             {/* 베스트게시글 */}
-            {props.bestShopListData?.fetchTopShop.map((el: any, idx: any) => (
-              <BestStoreItemContainerPage
-                key={uuidv4()}
-                el={el}
-                id={el.shopId}
-                idx={idx}
-              />
-            ))}
+            <S.Test>
+              {props.bestShopListData?.fetchTopShop.map((el: any, idx: any) => (
+                <BestStoreItemContainerPage
+                  key={uuidv4()}
+                  el={el}
+                  id={el.shopId}
+                  idx={idx}
+                />
+              ))}
+            </S.Test>
           </S.BestContentsSection>
           {/* 메인게시글 */}
           {!props.sellerSearch.length && !props.titleSearch.length ? (

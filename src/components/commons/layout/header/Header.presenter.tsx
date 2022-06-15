@@ -5,8 +5,20 @@ export default function LayoutHeaderPresenter(props: any) {
   return (
     <S.HeaderWrapper>
       <S.HeaderBox>
+        <S.MediaHamburgerDiv>
+          <S.MediaHamburger
+            onClick={props.onClickHamburger}
+            mediaIsOpen={props.mediaIsOpen}
+            src={
+              !props.mediaIsOpen
+                ? "/images/hamburger.png"
+                : "/images/hamburgerX.png"
+            }
+          />
+        </S.MediaHamburgerDiv>
+
         <S.HeaderLogo onClick={props.onClickHome} src="/images/logo.png" />
-        <S.HeaderMenuBox>
+        <S.HeaderMenuBox mediaIsOpen={props.mediaIsOpen}>
           <S.IntroductionMenu
             isIntroPage={props.isIntroPage}
             onClick={props.onClickIntro}
