@@ -15,6 +15,7 @@ export const Main = styled.div`
   width: 1338px;
   @media ${breakPoints.mobile} {
     width: 360px;
+    padding: 0px 20px;
   }
 `;
 
@@ -22,12 +23,16 @@ export const TitleSection = styled.div`
   font-size: 40px;
   font-weight: 700;
   padding: 100px 0px;
+  @media ${breakPoints.mobile} {
+    padding: 30px 0px;
+    font-size: 20px;
+  }
 `;
 
 export const SearchSection = styled.div`
   padding: 0px 0px 46px 0px;
   @media ${breakPoints.mobile} {
-    padding: 0px 20px 46px 0px;
+    padding: 0px 0px 20px 0px;
   }
 `;
 
@@ -53,7 +58,7 @@ export const BestContentsSection = styled.div`
   }
 `;
 
-export const Test = styled.div`
+export const BestStoreItemContentsArticle = styled.div`
   display: flex;
   @media ${breakPoints.mobile} {
     display: flex;
@@ -80,9 +85,8 @@ export const BestContentsMediaTitleArticle = styled.div`
   color: #ff9a31;
   @media ${breakPoints.mobile} {
     display: flex;
-    font-size: 12px;
-    font-weight: 800;
     color: #ff9a31;
+    padding: 0px 0px 0px 10px;
   }
 `;
 
@@ -103,6 +107,10 @@ export const StoreContentsSection = styled.div`
   display: grid;
   flex-wrap: wrap;
   grid-template-columns: 25% 25% 25% 25%;
+  @media ${breakPoints.mobile} {
+    grid-template-columns: 100%;
+    padding: 20px 0px 0px 0px;
+  }
 `;
 
 export const UpBtnSection = styled.div`

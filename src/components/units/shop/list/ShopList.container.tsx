@@ -29,7 +29,6 @@ export default function ShopContainerPage(props: any) {
       },
     });
 
-
   const { data: bestShopListData } = useQuery(FETCH_TOP_SHOP);
 
   // 전체 shop 리스트 데이터 무한스크롤
