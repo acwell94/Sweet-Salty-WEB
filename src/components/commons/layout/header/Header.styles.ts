@@ -15,6 +15,8 @@ export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 100;
   @media ${breakPoints.mobile} {
     width: 360px;
     background: #fff;
