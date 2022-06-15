@@ -23,6 +23,7 @@ export default function StoreSearchBarPresenter(props: any) {
           </S.Select>
           <S.SearchBar
             onKeyUp={props.onKeyUpInput}
+            ref={props.inputRef}
             type="text"
             placeholder="검색어를 입력하세요."
           />

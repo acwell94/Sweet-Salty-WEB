@@ -35,7 +35,7 @@ export default function LayoutHeaderPresenter(props: any) {
             isStorePage={props.isStorePage}
             onClick={props.onClickStore}
           >
-            단짠 스토어
+            단짝 스토어
           </S.StoreMenu>
           <S.NoticeMenu
             isNoticePage={props.isNoticePage}

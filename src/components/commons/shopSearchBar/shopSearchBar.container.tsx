@@ -19,6 +19,7 @@ export default function StoreSearchBarContainerPage(props: any) {
       props.setTitleSearch(inputRef.current?.value);
     }
   };
+
   const onKeyUpInput = (event: any) => {
     if (conditionRef.current?.value === "seller" && event.keyCode === 13) {
       props.setTitleSearch("");
