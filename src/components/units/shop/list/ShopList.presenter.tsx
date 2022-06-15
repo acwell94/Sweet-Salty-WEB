@@ -37,7 +37,7 @@ export default function ShopPresenterPage(props: any) {
               실시간 TOP 3
             </S.BestContentsMediaTitleArticle>
             {/* 베스트게시글 */}
-            <S.Test>
+            <S.BestStoreItemContentsArticle>
               {props.bestShopListData?.fetchTopShop.map((el: any, idx: any) => (
                 <BestStoreItemContainerPage
                   key={uuidv4()}
@@ -46,11 +46,11 @@ export default function ShopPresenterPage(props: any) {
                   idx={idx}
                 />
               ))}
-            </S.Test>
+            </S.BestStoreItemContentsArticle>
           </S.BestContentsSection>
           {/* 메인게시글 */}
           {!props.sellerSearch.length && !props.titleSearch.length ? (
-            <div style={{ height: "auto", overflow: "auto" }}>
+            <div style={{ height: "auto", overflow: "hidden" }}>
               <InfiniteScroll
                 pageStart={0}
                 loadMore={props.shopListDataLoadMore}
@@ -69,7 +69,7 @@ export default function ShopPresenterPage(props: any) {
               </InfiniteScroll>
             </div>
           ) : props.sellerSearch.length ? (
-            <div style={{ height: "auto", overflow: "auto" }}>
+            <div style={{ height: "auto", overflow: "hidden" }}>
               <InfiniteScroll
                 pageStart={0}
                 loadMore={props.sellerSearchDataLoadMore}

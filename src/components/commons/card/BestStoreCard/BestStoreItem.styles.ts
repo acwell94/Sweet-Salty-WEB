@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
 import { breakPoints } from "../../globalstyles/Media";
 export const ItemMainDiv = styled.div`
   display: flex;
@@ -78,12 +77,6 @@ export const GifiticonLogo = styled.img`
   height: 7px;
 `;
 
-export const ItemPick = styled(FavoriteRoundedIcon)`
-  && {
-    color: #ffffff;
-    font-size: 40px;
-  }
-`;
 export const ItemInfoDiv = styled.div`
   padding: 20px 0;
   width: 338px;
@@ -179,7 +172,7 @@ export const ItemNoDCPriceDiv = styled.div`
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
-  padding: 2px 5px 0;
+  padding: 0px 0px 0px 4px;
   text-decoration: line-through;
   @media ${breakPoints.mobile} {
     font-size: 8px;

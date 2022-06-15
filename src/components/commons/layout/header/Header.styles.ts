@@ -31,6 +31,7 @@ export const HeaderBox = styled.div`
   @media ${breakPoints.mobile} {
     width: 360px;
     padding: 18px 20px;
+    z-index: 10;
   }
 `;
 export const HeaderLogo = styled.img`
