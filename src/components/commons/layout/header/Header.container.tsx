@@ -16,35 +16,54 @@ export default function LayoutHeader() {
   const [logout] = useMutation(LOGOUT);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const [, setAccessToken] = useRecoilState(accessTokenState);
-
+  const [mediaIsOpen, setMediaIsOpen] = useState(false);
   const { data: fetchUnreadMessageCountData } = useQuery(
     FETCH_UNREAD_MESSAGE_COUNT
   );
 
+  const onClickHamburger = () => {
+    setMediaIsOpen((prev) => !prev);
+  };
+
   const onClickHome = () => {
     router.push("/");
+    if (mediaIsOpen) {
+      setMediaIsOpen(false);
+    }
   };
 
   const onClickIntro = () => {
     router.push("/Intro");
+    if (mediaIsOpen) {
+      setMediaIsOpen(false);
+    }
   };
   const IntroPage = ["Intro"];
   const isIntroPage = IntroPage.includes(router.asPath.split("/")[1]);
 
   const onClickReview = () => {
     router.push("/reviews");
+    if (mediaIsOpen) {
+      setMediaIsOpen(false);
+    }
   };
   const ReviewPage = ["reviews"];
   const isReviewPage = ReviewPage.includes(router.asPath.split("/")[1]);
 
   const onClickStore = () => {
     router.push("/shop");
+    if (mediaIsOpen) {
+      setMediaIsOpen(false);
+    }
   };
   const StorePage = ["shop"];
   const isStorePage = StorePage.includes(router.asPath.split("/")[1]);
 
   const onClickNotice = () => {
     router.push("/noticeAll");
+    if (mediaIsOpen) {
+      setMediaIsOpen(false);
+    }
   };
   const NoticePage = ["noticeAll"];
   const isNoticePage = NoticePage.includes(router.asPath.split("/")[1]);
@@ -103,6 +122,8 @@ export default function LayoutHeader() {
       isReviewPage={isReviewPage}
       isStorePage={isStorePage}
       isNoticePage={isNoticePage}
+      onClickHamburger={onClickHamburger}
+      mediaIsOpen={mediaIsOpen}
     />
   );
 }
