@@ -30,7 +30,7 @@ export default function CommonReviewWritePresenter(props: any) {
           isOpen={props.registerIsOpen}
           setIsOpen={props.registerSetIsOpen}
           onClickSuccess={props.onClickSuccess}
-          role={"등록"}
+          role={props.isEdit?"수정":"등록"}
         />
       )}
       <form
@@ -198,6 +198,18 @@ export default function CommonReviewWritePresenter(props: any) {
                   <S.CategoryPick>
                     {props.updateData?.boardSides[0]?.boardTags.boardTagName}
                   </S.CategoryPick>
+                  {props.menuTagData.map((el: any, idx: any) => (
+                    <label className="checkbox" key={el.key}>
+                      <input
+                        type="checkbox"
+                        id={String(idx)}
+                        onChange={props.onChangeCheckMenu(el)}
+                        checked={Boolean(el.checked)}
+                        // checked={ props.updateData?.boardSides[0]?.boardTags.boardTagName===el.value||Boolean(el.checked)}
+                      />
+                      <span className="checkbox_text">{el.value}</span>
+                    </label>
+                  ))}
                 </S.MenuBox>
               ) : (
                 <S.MenuBox>

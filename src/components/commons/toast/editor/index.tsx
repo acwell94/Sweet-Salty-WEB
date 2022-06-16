@@ -1,6 +1,5 @@
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
-// import { useRef } from "react";
 import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 
 import { gql, useMutation } from "@apollo/client";
@@ -13,17 +12,7 @@ const UPLOAD_FILE = gql`
 
 export default function WriteToastForEdit(props:any) {
   const [uploadFile] = useMutation(UPLOAD_FILE);
-  // const editorRef = useRef<Editor>(null);
-
-  // const onChangeContents = () => {
-  //   const editorInstance = editorRef.current?.getInstance();
-  //   props.setBoardContents(editorInstance?.getMarkdown());
-
-  //   if (props.defaultValue===props.updateData?.boardContents)
-  //     props.setBoardContents(editorInstance?.getMarkdown());
-  // };
-
-  const onUploadImage = async (blob:any, callback:any) => {
+    const onUploadImage = async (blob:any, callback:any) => {
     const url = await uploadFile({
       variables: { file: blob },
     });
@@ -33,7 +22,7 @@ export default function WriteToastForEdit(props:any) {
   };
   return (
     <>
-      <Editor
+      {props.updateData&&<Editor
         hooks={{
           addImageBlobHook: onUploadImage,
         }}
@@ -46,10 +35,9 @@ export default function WriteToastForEdit(props:any) {
         initialEditType="wysiwyg"
         previewStyle="tab"
         plugins={[colorSyntax]}
-        // onChange={onChangeContents}
-        initialValue={props.updateData?.boardContents ||""}
+        initialValue={props.updateData?.boardContents}
         ref={props.editorRef}
-      />
+      />}
     </>
   );
 }
