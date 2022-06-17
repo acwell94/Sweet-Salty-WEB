@@ -24,7 +24,7 @@ export const TitleSection = styled.div`
   font-weight: 700;
   padding: 100px 0px;
   @media ${breakPoints.mobile} {
-    padding: 30px 0px;
+    padding: 98px 0px 30px 0px;
     font-size: 20px;
   }
 `;

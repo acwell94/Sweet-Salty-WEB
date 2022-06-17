@@ -9,15 +9,11 @@ import {
   CREATE_BOARD_RES,
   UPDATE_BOARD,
 } from "./CommonReviewWrite.queries";
-// 
 import { Editor } from "@toast-ui/react-editor";
 
-// 
 export default function CommonReviewWriteContainer(props: any) {
-  // 
+  
   const editorRef = useRef<Editor>(null);
-
-// 
   const router = useRouter();
   const [createBoard] = useMutation(CREATE_BOARD);
   const [createBoardReq] = useMutation(CREATE_BOARD_REQ);
@@ -28,7 +24,6 @@ export default function CommonReviewWriteContainer(props: any) {
   );
   const [boardTagMenu, setBoardTagMenu] = useState();
   const [moodHashTag, setMoodHashTag] = useState([]);
-  // const [boardContents, setBoardContents] = useState("");
   const [address, setAddress] = useState({
     place_name: "",
     road_address_name: "",
@@ -118,7 +113,6 @@ export default function CommonReviewWriteContainer(props: any) {
   const onClickCancel = () => {
     cancelSetIsOpen((prev) => !prev);
   };
-
   const onClickReg = async (data: any) => {
     const contentsvalue = editorRef.current?.getInstance().getMarkdown();
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
@@ -132,7 +126,7 @@ export default function CommonReviewWriteContainer(props: any) {
                 boardTitle: data.boardTitle,
                 boardSugar: data.boardSugar,
                 boardSalt: data.boardSalt,
-                boardContents : contentsvalue,
+                boardContents: contentsvalue,
                 subCategoryName,
                 place: {
                   placeName: address.place_name,
@@ -161,7 +155,7 @@ export default function CommonReviewWriteContainer(props: any) {
           variables: {
             createBoardReqInput: {
               boardTitle: data.boardTitle,
-              boardContents :contentsvalue,
+              boardContents: contentsvalue,
               subCategoryName,
               place: {
                 placeName: address.place_name,
@@ -187,7 +181,7 @@ export default function CommonReviewWriteContainer(props: any) {
               boardTitle: data.boardTitle,
               boardSugar: data.boardSugar,
               boardSalt: data.boardSalt,
-              boardContents:contentsvalue,
+              boardContents: contentsvalue,
               subCategoryName,
               place: {
                 placeName: address.place_name,
@@ -253,7 +247,7 @@ export default function CommonReviewWriteContainer(props: any) {
           },
         },
       });
-      alert("수정 완료");
+      alert("수정 완료")
       router.push(`/reviews/commonReview/${router.query.boardId}`);
     } catch (error: any) {
       alert(error.message);
@@ -269,7 +263,6 @@ export default function CommonReviewWriteContainer(props: any) {
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      // setBoardContents={setBoardContents}
       setAddress={setAddress}
       menuTagData={menuTagData}
       setMenuTagData={setMenuTagData}
@@ -292,8 +285,7 @@ export default function CommonReviewWriteContainer(props: any) {
       registerIsOpen={registerIsOpen}
       registerSetIsOpen={registerSetIsOpen}
       onClickSuccess={onClickSuccess}
-      // 
       editorRef={editorRef}
-      />
+    />
   );
 }
