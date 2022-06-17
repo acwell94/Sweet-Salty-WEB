@@ -5,7 +5,7 @@ export const ItemMainDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  padding: 12px 20px 0px 10px;
+  padding: 12px 5px 0px 10px;
   position: relative;
   @media ${breakPoints.mobile} {
   }
@@ -40,7 +40,7 @@ export const ItemImg = styled.div`
   align-items: center;
   width: 338px;
   @media ${breakPoints.mobile} {
-    width: 245px;
+    width: 240px;
     height: 180px;
     padding: 0px;
   }
