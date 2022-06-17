@@ -19,6 +19,7 @@ export const HeaderWrapper = styled.div`
   z-index: 100;
   @media ${breakPoints.mobile} {
     width: 360px;
+    height: 68px;
     background: #fff;
     z-index: 10;
   }
@@ -143,8 +144,10 @@ export const NoticeMenu = styled.div`
 
 export const HeaderNonMembersRightBox = styled.div`
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  @media ${breakPoints.mobile} {
+    background-color: red;
+  }
 `;
 export const HeaderLogin = styled.div`
   font-size: 16px;
@@ -152,11 +155,19 @@ export const HeaderLogin = styled.div`
   margin: 0 20px;
   cursor: pointer;
   color: #7b7b7b;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+    margin: 0px;
+  }
 `;
 export const P = styled.div`
   font-size: 16px;
   cursor: default;
   color: #7b7b7b;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+    padding: 0px 5px;
+  }
 `;
 export const HeaderSignup = styled.div`
   font-size: 16px;
@@ -164,6 +175,10 @@ export const HeaderSignup = styled.div`
   margin: 0 20px;
   cursor: pointer;
   color: #7b7b7b;
+  @media ${breakPoints.mobile} {
+    font-size: 10px;
+    margin: 0px;
+  }
 `;
 
 export const HeaderMemberRightBox = styled.div`
