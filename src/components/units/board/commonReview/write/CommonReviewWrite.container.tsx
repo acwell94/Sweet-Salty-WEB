@@ -73,9 +73,8 @@ export default function CommonReviewWriteContainer(props: any) {
     },
   ]);
   useEffect(() => {
-    const defaultMoodList =[]
+    const defaultMoodList = [];
     if (props.updateData) {
-      
       // 음식분류
       for (let i = 0; i < menuTagData.length; i++) {
         if (
@@ -87,20 +86,21 @@ export default function CommonReviewWriteContainer(props: any) {
       }
       setBoardTagMenu(props.updateData?.boardSides[0]?.boardTags.boardTagName);
       // 분위기
-      for(let i =2;i<props.updateData.boardSides.length;i++){
-        if(props.updateData.boardSides[i].boardTags.boardTagRefName==="MOOD"){
-          defaultMoodList.push(props.updateData?.boardSides[i].boardTags.boardTagName);
+      for (let i = 2; i < props.updateData.boardSides.length; i++) {
+        if (
+          props.updateData.boardSides[i].boardTags.boardTagRefName === "MOOD"
+        ) {
+          defaultMoodList.push(
+            props.updateData?.boardSides[i].boardTags.boardTagName
+          );
         }
       }
       for (let i = 0; i < moodTagData.length; i++) {
-        if (
-          defaultMoodList.includes(moodTagData[i].value)
-          
-        ) {
+        if (defaultMoodList.includes(moodTagData[i].value)) {
           moodTagData[i].checked = true;
         }
       }
-      setMoodHashTag(defaultMoodList)
+      setMoodHashTag(defaultMoodList);
     }
   }, [props.updateData]);
   // console.log(moodHashTag,"해시")
@@ -145,6 +145,10 @@ export default function CommonReviewWriteContainer(props: any) {
   };
   const onClickReg = async (data: any) => {
     const contentsvalue = editorRef.current?.getInstance().getMarkdown();
+    if (!address.road_address_name.split(" ")[0].includes("서울")) {
+      alert("지금은 서울에 있는 맛집의 리뷰만 등록이 가능해요!");
+      return;
+    }
     if (subCategoryName === "REVIEW" || subCategoryName === "TASTER") {
       if (moodHashTag.length > 3) {
         alert("분위기는 3개까지 선택이 가능합니다.");
@@ -322,8 +326,6 @@ export default function CommonReviewWriteContainer(props: any) {
       onClickSuccess={onClickSuccess}
       editorRef={editorRef}
       setSubCategoryName={setSubCategoryName}
-      //
-      boardTagMenu={boardTagMenu}
     />
   );
 }
