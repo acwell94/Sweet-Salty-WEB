@@ -8,7 +8,6 @@ export const CommonReviewWrapper = styled.div`
   align-items: center;
   @media ${breakPoints.mobile} {
     width: 360px;
-    /* padding: 0px 20px; */
   }
 `;
 export const Title = styled.div`
@@ -87,6 +86,10 @@ export const ReviewList = styled.div`
   display: grid;
   flex-wrap: wrap;
   grid-template-columns: 25% 25% 25% 25%;
+  @media ${breakPoints.mobile} {
+    grid-template-columns: 100%;
+    padding: 20px 0px 0px 0px;
+  }
 `;
 
 export const TopButtonArticle = styled.div`
