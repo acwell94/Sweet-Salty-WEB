@@ -76,7 +76,7 @@ export default function ShopWriteContainerPage(props: any) {
     setValue("description", props.fetchShop?.shopDescription);
     setValue("stock", props.fetchShop?.shopStock);
     setAddress(props.fetchShop?.place);
-  });
+  },[]);
 
   const onClickUpdate = async (data: any) => {
     try {
